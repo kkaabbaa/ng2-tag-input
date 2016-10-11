@@ -331,10 +331,11 @@ export class TagInputComponent extends TagInputAccessor implements OnInit {
     /**
      * @name seyInputValue
      * @param value
+     * @param isTransform
      * @returns {string}
      */
-    private setInputValue(value: string): string {
-        const item = value ? this.transform(value) : '';
+    private setInputValue(value: string, isTransform: boolean = true): string {
+        const item = value && isTransform ? this.transform(value) : value;
         const control = this.getControl();
 
         // update form value with the transformed item
